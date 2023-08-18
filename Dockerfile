@@ -1,4 +1,4 @@
-FROM golang:1.19.0-alpine3.16 as concierge
+FROM golang:1.21.0-alpine3.18 as concierge
 RUN apk add git
 WORKDIR /concierge
 COPY go.mod go.sum ./
@@ -7,7 +7,7 @@ COPY . .
 RUN go build -o concierge main.go 
 
 
-FROM alpine:3.16
+FROM alpine:3.18
 
 ENV GOSU_VERSION="1.10"
 ENV ARCH="amd64"
